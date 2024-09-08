@@ -1,1 +1,2 @@
-print("Enter a todo: ")
+user_input = input("Enter your todo:")
+print(user_input)
