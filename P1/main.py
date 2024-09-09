@@ -42,12 +42,15 @@ while True:
 
             with open('todo.txt', 'r') as file:
                 todos = file.readlines()    
-
+            
+            todo_to_remove = todos[number - 1].strip('\n')
             todos.pop(number - 1)
 
             with open('todo.txt','w') as file:
                 file.writelines(todos)
 
+            message = f"Todo {todo_to_remove} was removed from the list"
+            print(message)
             
         case 'exit':
             break

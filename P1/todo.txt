@@ -1,7 +1,4 @@
-clea
 bath
 throw
-clean
 bath
-clean
 code
