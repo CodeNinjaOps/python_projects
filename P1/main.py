@@ -6,22 +6,21 @@ while True:
         case 'add':
             todo = input("Enter a todo: ") + "\n"
             
-            file = open('todo.txt', 'r')
-            todos = file.readlines()
-            file.close()
+            with open('todo.txt', 'r') as file:
+                todos = file.readlines()
             
             todos.append(todo)
             
-            file = open('todo.txt', 'w')
-            file.writelines(todos)
-            file.close()
-            
+            with open('todo.txt','w') as file:
+                file.writelines(todos)
+                            
         case 'show' | 'display':
-            file  = open('todo.txt', 'r')
-            todos = file.readlines()
-            file.close()
+            
+            with open('todo.txt', 'r') as file:
+                todos = file.readlines()            
             
             new_todos = [item.strip('\n') for item in todos]
+            
             for index, item in enumerate(new_todos):
                 row = f"{index + 1}-{item}"
                 print(row)
