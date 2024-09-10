@@ -1,9 +1,6 @@
 throw
 code
-cleanrunnclean
 run
 clean
 run
-show
-show
-jjdsa
+sleep
