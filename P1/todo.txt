@@ -1,6 +1,4 @@
-compelte
 throw
-bath
 code
 cleanrunnclean
 run
@@ -8,3 +6,4 @@ clean
 run
 show
 show
+jjdsa
