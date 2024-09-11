@@ -1,6 +1,2 @@
-throw
-code
-run
+bathing
 clean
-run
-sleep
