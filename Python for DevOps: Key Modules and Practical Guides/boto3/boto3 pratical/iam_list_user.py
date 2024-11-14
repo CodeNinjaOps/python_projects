@@ -2,7 +2,13 @@ import boto3
 from datetime import datetime
 from dateutil.tz import tzutc
 
-# Store the response data in a variable
+
+#session = boto3.Session(profile_name='dev')  # Use the profile you configured
+#iam = session.client('iam')
+
+#response = iam.list_users()
+
+# Store the response data in a variable testing locally with output
 response_data = {
     'Users': [
         {
@@ -40,3 +46,8 @@ response_data = {
 
 for user in response_data['Users']:
     print(f"Users:{user['UserName']}, userId:{user['UserId']}")
+
+print(f"IsTruncated: {response_data['IsTruncated']}")
+
+# Print HTTPStatusCode from ResponseMetadata
+print(f"HTTPStatusCode: {response_data['ResponseMetadata']['HTTPStatusCode']}")
