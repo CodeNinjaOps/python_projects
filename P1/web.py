@@ -1,20 +1,29 @@
-import streamlit as sl
+import streamlit as st
 import functions
 
 todos = functions.get_todos()
 
 
 def add_todo():
-    todo = sl.session_state['new_todo'] + "\n"
+    todo = st.session_state['new_todo'] + "\n"
     todos.append(todo)
     functions.modify_todos(todos)
+    st.session_state["new_todo"] = ""
 
-sl.title("Todo list Web Application")
-sl.subheader("This is my todo app")
-sl.write("This app to increase your productivity")
+st.title("Todo list Web Application")
+st.subheader("This is my todo app")
+st.write("This app to increase your productivity")
 
 
-for todo in todos:
-    sl.checkbox(todo)
+for index, todo in enumerate(todos):
+    checkbox = st.checkbox(todo,key=todo)
+    print(f"index:{index}, todo:{todo}")
+    if checkbox:
+        todos.pop(index)
+        functions.modify_todos(todos)
+        del st.session_state[todo]
+        st.rerun()
 
-sl.text_input(label="",placeholder="Add new todo ....",on_change=add_todo,key="new_todo")
+st.text_input(label="",placeholder="Add new todo ....",on_change=add_todo,key="new_todo")
+
+st.session_state
